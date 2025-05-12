@@ -1,14 +1,33 @@
-# Tic-Tack-Toe
-Two ways to solve Tic Tack Toe
+# Project: Tic-Tac-Toe AI Solvers
 
+## Overview
 
-The first method is more of a brute force. Since the game has relatively little outcomes (around 250.000) this is a solid way to always draw or win. 
-The algorithm I used is fairly similar to the Minimax algorithm. 
-This algorithm wins if it has a forced win, otherwise it will draw. 
-Something interesting to note is that it doesn't care when it wins. If it calculates it can win in 3 moves or in 1 move, it will just pick "randomly".
+This project explores two distinct approaches to developing an Artificial Intelligence capable of playing Tic-Tac-Toe optimally or near-optimally. The goal was to implement and compare a traditional game-tree search algorithm with a machine learning-based approach using a neural network trained via evolutionary methods.
 
+## Implemented Approaches
 
-The second method trains a neural network to play the game. 
-The entire model was built from scratch. It uses an evolutionary approach to train, instead of a more traditional optimizer.
-While this is a fairly primitive way of training a neural network, it still achieved an accuracy of around 95%. In this case that means the AI wins/draws 95% of the games it plays against an opponent which makes random moves.
-This accuracy is much higher than the 75% a classmate achieved using NEAT.
+### 1. Minimax-based Solver
+
+This method implements a deterministic algorithm to find the optimal move in any given Tic-Tac-Toe state.
+
+- **Algorithm:** The approach is fundamentally similar to the Minimax algorithm, exploring the game tree to determine the best possible outcome. Given Tic-Tac-Toe's relatively small state space (approximately 250,000 unique states), a brute-force search is computationally feasible.
+- **Strategy:** The algorithm guarantees a win if a forced win sequence exists from the current state. Otherwise, it ensures at least a draw against any opponent.
+- **Behavior Note:** An interesting characteristic observed is its indifference towards the speed of victory. If multiple paths lead to a win (e.g., winning in 1 move vs. 3 moves), the algorithm does not prioritize the faster win and may select among winning moves arbitrarily.
+
+### 2. Neural Network Solver (Evolutionary Approach)
+
+This method utilizes a neural network, built entirely from scratch, to learn how to play Tic-Tac-Toe.
+
+- **Training Method:** Instead of traditional gradient-based optimizers (like backpropagation), this network was trained using an evolutionary strategy. This involves generating variations of the network and selecting the best performers over generations.
+- **Architecture:** _(Consider adding details about the network architecture if available - e.g., number of layers, neurons, activation functions)._
+- **Performance:** While evolutionary training can be considered a more primitive approach for neural networks, this model achieved a notable success rate. When evaluated against an opponent making random moves, the AI successfully wins or draws approximately 95% of the games.
+- **Comparative Result:** This 95% win/draw rate significantly outperforms the ~75% accuracy achieved by a peer using the NEAT (NeuroEvolution of Augmenting Topologies) algorithm for the same task, demonstrating the effectiveness of this custom implementation.
+
+## Technologies Used
+
+- Python
+- _(Add any specific libraries used, e.g., NumPy if used for the neural network)_
+
+## How to Run
+
+_(Add instructions here if you want users to be able to run the code, e.g., command to play against the AI)_
